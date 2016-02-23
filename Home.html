@@ -12,6 +12,7 @@
 {cms_stylesheet}
 {* This is how all the stylesheets attached to this template are linked to *}
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="http://fast.fonts.com/cssapi/4fee7bb7-b375-4b97-bcbb-5f1cc6ee6053.css"/>
 <link rel="stylesheet/less" type="text/css" href="css/app.less">
 <link rel="shortcut icon" href="favicon.ico" />
 {cms_selflink dir="start" rellink=1}
@@ -31,18 +32,39 @@
 <![endif]-->
 {* The above JavaScript is required for CSSMenu to work in IE *}
 
-<body>
-<header>
+<body class="page-{$page_alias}">
+<div class="header">
   <div class="container">
-    <div class="page-content banner"></div>
-    {menu}
+    <a href="/" class="logo"><img src="uploads/images/logo.png" alt="McLean Delmo Bentleys"/></a>
+    <a href="/secure-returns-login" class="bt return"><span>Secure Returns Login</span></a>
+    <a href="/client-login" class="bt client"><span>ArkPX Login</span></a>
+    <a href="http://www.linkedin.com/company/mclean-delmo-bentleys?trk=top_nav_home" target="_blank" class="bt linkedin"><span>Linkedin</span></a>
+    <a href="http://www.kreston.com/" target="_blank" class="kreston"><img src="uploads/images/Kreston.jpg" alt="Kreston"/></a>
   </div>
-</header>
-<div class="content page-content">
-  <article class="container">{content}</article>
 </div>
+<nav>{menu}</nav>
+{if $page_alias == "home"}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="item active" style="background-image:url(uploads/images/banner1.jpg)"></div>
+    <div class="item" style="background-image:url(uploads/images/banner2.jpg)"></div>
+    <div class="item" style="background-image:url(uploads/images/banner3.jpg)"></div>
+    <div class="item" style="background-image:url(uploads/images/banner4.jpg)"></div>
+  </div>
+</div>
+{else}
+<div class="banner" style="background-image: url(uploads/images/banner{rand}.jpg)"></div>
+{/if}
+<article class="container">{content}</article>
 <footer>
-  <div class="container"></div>
+  <div class="container">© Copyright 2016 McLean Delmo Bentleys | <a href="/privacy-policy">Privacy Policy</a></div>
 </footer>
 </body>
+{capture assign=metadescription}{content block="metadescription" label="META Description" oneline="true"}{/capture}
 </html>
