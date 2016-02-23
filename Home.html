@@ -1,0 +1,48 @@
+{process_pagedata}
+<!DOCTYPE html>
+<html lang="en">
+{* Change lang="en" to the language of your site *}
+<title>{sitename} - {title}</title>
+{* The sitename is changed in Site Admin/Global settings. {title} is the name of each page *}
+
+{metadata}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+{cms_stylesheet}
+{* This is how all the stylesheets attached to this template are linked to *}
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet/less" type="text/css" href="css/app.less">
+<link rel="shortcut icon" href="favicon.ico" />
+{cms_selflink dir="start" rellink=1}
+{cms_selflink dir="prev" rellink=1}
+{cms_selflink dir="next" rellink=1}
+{* Relational links for interconnections between pages, good for accessibility and Search Engine Optmization *}
+
+{literal}
+<script src="js/jquery.min.js"></script>
+<script src="js/less.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/init.js"></script>
+{/literal}
+
+<!--[if IE]>
+<script src="modules/MenuManager/CSSMenu.js"></script>
+<![endif]-->
+{* The above JavaScript is required for CSSMenu to work in IE *}
+
+<body>
+<header>
+  <div class="container">
+    <div class="page-content banner"></div>
+    {menu}
+  </div>
+</header>
+<div class="content page-content">
+  <article class="container">{content}</article>
+</div>
+<footer>
+  <div class="container"></div>
+</footer>
+</body>
+</html>
